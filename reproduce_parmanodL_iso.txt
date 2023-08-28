@@ -1,6 +1,6 @@
 ENVIRONMENT
 
-    Linux Mint
+    Linux Mint - linuxmint-21.1-cinnamon-64bit.iso; download to ~/Downloads/
 
     install squashfs-tools, genisoimage, xorriso, syslinux (These are usually installed anyway)
 
@@ -58,7 +58,7 @@ SET TIMESTAMPS
 sudo find squashfs-root/ -exec touch -h -d "2023-08-01 00:00:00" {} +
 
 CLEAR SPACE
-delete the file filesystem.squashfs
+sudo rm ~/custom-mint/iso/casper/filesystem.squashfs
 
 CREATE NEW FS
 sudo mksquashfs squashfs=root ~/custom-mint/iso/casper/filesystem.squashfs
