@@ -59,7 +59,7 @@ CREATE NEW FS
 sudo mksquashfs squashfs-root ~/custom-mint/iso/casper/filesystem.squashfs
 
 GET MBR OF ORIGINAL
-dd if=~/Downloads/linuxmint-21.2-64bit.cinnamon.iso bs=512 count=1 of=~/custom-mint/iso/isolinux/isohdpfx.bin
+dd if=~/Downloads/linuxmint-21.2-cinnamon-64bit.iso bs=512 count=1 of=~/custom-mint/iso/isolinux/isohdpfx.bin
 
 
 MAKE ISO
