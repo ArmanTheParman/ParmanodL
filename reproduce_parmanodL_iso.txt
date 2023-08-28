@@ -52,10 +52,7 @@ history -c
 exit
 
 UNMOUNT DIRECTORIES
-sudo umount squashfs-root/dev/pts
-sudo umount squashfs-root/dev
-sudo umount squashfs-root/proc
-sudo umount squashfs-root/sys
+sudo umount squashfs-root/dev/pts squashfs-root/dev squashfs-root/proc squashfs-root/sys
 
 SET TIMESTAMPS
 find squashfs-root/ -exec touch -h -d "2023-08-01 00:00:00" {} +
