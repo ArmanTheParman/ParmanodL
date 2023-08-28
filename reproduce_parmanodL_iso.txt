@@ -1,30 +1,49 @@
 ENVIRONMENT
+
     Linux Mint
-    install squashfs-tools, genisoimage, xorriso, syslinux
 
-mkdir /etc/skel/Desktop
-touch /etc/skel/Desktop/"START HERE"
+    install squashfs-tools, genisoimage, xorriso, syslinux (These are usually installed anyway)
 
-echo '#!/bin/bash' >> "START HERE"
+MAKE A TEMPORARY ISO
 
-echo 'if ! ping -c 1 8.8.8.8 > /dev/null ; then clear ; echo "' >> "START HERE"
+	mkdir ~/custom-mint/original-iso
+	sudo mount -o loop linuxmint.iso ~/custom-mint/original-iso
 
-echo 'Please check your internet connection before trying again. Exiting."' >> "START HERE"
+	mkdir ~/custom-mint/iso
+	cp -a ~/custom-mint/original-iso/* ~/custom-mint/iso/
 
-echo 'exit ; fi' >> "START HERE"
-
-echo 'sudo apt update -y ; sudo apt install git -y' >> "START HERE"
-
-echo 'git clone http://github.com/armantheparman/parmanode.git' >> "START HERE"
-
-echo '#!/bin/bash' >> "run_parmanode.sh"
-
-echo 'cd ; cd Desktop ; cd parmanode ; ./run_parmanode.sh' >> "run_parmanode.sh"
-
-sudo chmod +x run_parmanode.sh
-
-echo 'rm "START HERE"' >> "START HERE"
+	sudo unsquashfs ~/custom-mint/iso/casper/filesystem.squashfs
 
 
+	sudo mount --bind /dev squashfs-root/dev
+	sudo mount --bind /dev/pts squashfs-root/dev/pts
+	sudo mount --bind /proc squashfs-root/proc
+	sudo mount --bind /sys squashfs-root/sys
+	sudo chroot squashfs-root
+
+WITHIN THE FILE SYSTEM:
+
+	mkdir /etc/skel/Desktop
+	touch /etc/skel/Desktop/"START HERE"
+
+START HERE - PRECISE FILE CONTENTS:
+'#!/bin/bash
+if ! ping -c 1 8.8.8.8 > /dev/null ; then 
+clear 
+echo "Please check your internet connection before trying again. Exiting."
+exit
+fi
+sudo apt update -y ; sudo apt install git -y
+git clone http://github.com/armantheparman/parmanode.git
+echo'#!/bin/bash
+cd ; cd Desktop ; cd parmanode ; ./run_parmanode.sh
+' > $HOME/Desktop/run_parmanode.sh
+sudo chmod +x $HOME/Desktop/run_parmanode.sh
+rm $HOME/Desktop/"START HERE"
+exit'
+
+
+
+FINAL TOUCHES
 > ~/.bash_history
 find squashfs-root/ -exec touch -h -d "2023-08-01 00:00:00" {} +
