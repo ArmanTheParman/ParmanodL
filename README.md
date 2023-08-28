@@ -58,5 +58,22 @@ to run Parmanode. You'll get a pop up and choose to "run in terminal".
     echo "cd ; cd Desktop ; cd parmanode ; ./run_parmanode.sh" >> $HOME/Desktop/run_parmanode.sh
     sudo chmod +x $HOME/Desktop/run_parmanode.sh
 
+## CUSTOM FUNCTIONS
 
+To make your ParmanodL more enjoyable to use, I have some custom functions which makes life
+in the terminal a little easier and prittier.
+
+Get it by downloading the ParmanodL repository:
+
+	cd ; git clone http://github.com/armantheparman/parmanodL.git
+
+Edit your ~/.bashrc file:
+	nano ~/.bashrc
+Then add a line at the end and save:
+	source /path/to/wherever/you/put/this/file/profile.sh/
+
+The file, profile.sh, will then be executed every time you use terminal. It will run to make the 
+custom_functions available. Do edit the path of the custom functions if it's not accurate.
+
+Read the "custom_functions" file to see what's available.
 
