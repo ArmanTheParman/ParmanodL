@@ -61,7 +61,7 @@ CLEAR SPACE
 sudo rm ~/custom-mint/iso/casper/filesystem.squashfs
 
 CREATE NEW FS
-sudo mksquashfs squashfs=root ~/custom-mint/iso/casper/filesystem.squashfs
+sudo mksquashfs squashfs-root ~/custom-mint/iso/casper/filesystem.squashfs
 
 GET MBR OF ORIGINAL
 dd if=/path/to/original.iso bs=512 count=1 of=~/custom-mint/isohdpfx.bin
