@@ -1,12 +1,9 @@
-useradd -m -s /bin/bash parman ; passwd parman
+ENVIRONMENT
+    Linux Mint
+    install squashfs-tools, genisoimage, xorriso, syslinux
 
-parmanode
-
-parmanode
-
-usermod -aG sudo parman ; su parman
-
-cd ; mkdir Desktop ; cd Desktop
+mkdir /etc/skel/Desktop
+touch /etc/skel/Desktop/"START HERE"
 
 echo '#!/bin/bash' >> "START HERE"
 
@@ -27,3 +24,7 @@ echo 'cd ; cd Desktop ; cd parmanode ; ./run_parmanode.sh' >> "run_parmanode.sh"
 sudo chmod +x run_parmanode.sh
 
 echo 'rm "START HERE"' >> "START HERE"
+
+
+> ~/.bash_history
+find squashfs-root/ -exec touch -h -d "2023-08-01 00:00:00" {} +
