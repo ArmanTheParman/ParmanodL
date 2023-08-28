@@ -68,8 +68,11 @@ Get it by downloading the ParmanodL repository:
 	cd ; git clone http://github.com/armantheparman/parmanodL.git
 
 Edit your ~/.bashrc file:
+
 	nano ~/.bashrc
+
 Then add a line at the end and save:
+
 	source /path/to/wherever/you/put/this/file/profile.sh/
 
 The file, profile.sh, will then be executed every time you use terminal. It will run to make the 
