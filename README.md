@@ -71,7 +71,7 @@ Edit your ~/.bashrc file:
 
 	nano ~/.bashrc
 
-Then add a line at the end and save:
+Add a line at the end and save:
 
 	source /path/to/wherever/you/put/this/file/profile.sh/
 
