@@ -1,0 +1,29 @@
+useradd -m -s /bin/bash parman ; passwd parman
+
+parmanode
+
+parmanode
+
+usermod -aG sudo parman ; su parman
+
+cd ; mkdir Desktop ; cd Desktop
+
+echo '#!/bin/bash' >> "START HERE"
+
+echo 'if ! ping -c 1 8.8.8.8 > /dev/null ; then clear ; echo "' >> "START HERE"
+
+echo 'Please check your internet connection before trying again. Exiting."' >> "START HERE"
+
+echo 'exit ; fi' >> "START HERE"
+
+echo 'sudo apt update -y ; sudo apt install git -y' >> "START HERE"
+
+echo 'git clone http://github.com/armantheparman/parmanode.git' >> "START HERE"
+
+echo '#!/bin/bash' >> "run_parmanode.sh"
+
+echo 'cd ; cd Desktop ; cd parmanode ; ./run_parmanode.sh' >> "run_parmanode.sh"
+
+sudo chmod +x run_parmanode.sh
+
+echo 'rm "START HERE"' >> "START HERE"
