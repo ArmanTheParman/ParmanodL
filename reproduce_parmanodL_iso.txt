@@ -64,7 +64,7 @@ CREATE NEW FS
 sudo mksquashfs squashfs=root ~/custom-mint/iso/casper/filesystem.squashfs
 
 GET MBR OF ORIGINAL
-dd if=/path/to/original.iso bs=512 count=1 of=~/custom-mint/original-iso/isolinux/isohdpfx.bin
+dd if=/path/to/original.iso bs=512 count=1 of=~/custom-mint/isohdpfx.bin
 
 
 MAKE ISO
@@ -75,7 +75,7 @@ sudo xorriso -as mkisofs \
   -eltorito-boot isolinux/isolinux.bin \
   -eltorito-catalog isolinux/boot.cat \
   -no-emul-boot -boot-load-size 4 -boot-info-table \
-  -isohybrid-mbr ~/custom-mint/original-iso/isolinux/isohdpfx.bin \
+  -isohybrid-mbr ~/custom-mint/isohdpfx.bin \
   -output ParmanodL.iso \
   iso/
 
