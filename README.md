@@ -73,7 +73,7 @@ Edit your ~/.bashrc file:
 
 Add a line at the end and save:
 
-	source /path/to/wherever/you/put/this/file/profile.sh/
+	. ~/parmanodL/profile.sh 
 
 The file, profile.sh, will then be executed every time you use terminal. It will run to make the 
 custom_functions available. Do edit the path of the custom functions if it's not accurate.
