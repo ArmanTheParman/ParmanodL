@@ -6,7 +6,7 @@ ENVIRONMENT
 
 MAKE A TEMPORARY ISO
 
-	mkdir -p ~/custom-mint/original-iso ; sudo mount -o loop linuxmint-21.2-cinnamon-64bit.iso ~/custom-mint/original-iso
+	mkdir -p ~/custom-mint/original-iso ; sudo mount -o loop ~/Downloads/linuxmint-21.2-cinnamon-64bit.iso ~/custom-mint/original-iso
 
 	mkdir ~/custom-mint/iso ; cp -a ~/custom-mint/original-iso/* ~/custom-mint/iso/
 
