@@ -1,30 +1,27 @@
 ENVIRONMENT
 
-    Linux Mint
+    Linux Mint - linuxmint-21.2-cinnamon-64bit.iso; download to ~/Downloads/
 
     install squashfs-tools, genisoimage, xorriso, syslinux (These are usually installed anyway)
 
 MAKE A TEMPORARY ISO
 
-	mkdir ~/custom-mint/original-iso
-	sudo mount -o loop linuxmint.iso ~/custom-mint/original-iso
+	mkdir -p ~/custom-mint/original-iso ; sudo mount -o loop linuxmint-21.2-cinnamon-64bit.iso ~/custom-mint/original-iso
 
-	mkdir ~/custom-mint/iso
-	cp -a ~/custom-mint/original-iso/* ~/custom-mint/iso/
+	mkdir ~/custom-mint/iso ; cp -a ~/custom-mint/original-iso/* ~/custom-mint/iso/
 
 	sudo unsquashfs ~/custom-mint/iso/casper/filesystem.squashfs
 
 
-	sudo mount --bind /dev squashfs-root/dev
-	sudo mount --bind /dev/pts squashfs-root/dev/pts
-	sudo mount --bind /proc squashfs-root/proc
-	sudo mount --bind /sys squashfs-root/sys
+	sudo mount --bind /dev squashfs-root/dev ; sudo mount --bind /dev/pts squashfs-root/dev/pts
+
+	sudo mount --bind /proc squashfs-root/proc ; sudo mount --bind /sys squashfs-root/sys
+
 	sudo chroot squashfs-root
 
 WITHIN THE FILE SYSTEM:
 
-	mkdir /etc/skel/Desktop
-	touch /etc/skel/Desktop/"START HERE"
+	mkdir /etc/skel/Desktop ; touch /etc/skel/Desktop/"START HERE"
 
 START HERE - PRECISE FILE CONTENTS; RUN THIS ECHO COMMAND IN ONE GO...
 
@@ -47,9 +44,7 @@ MAKE SCRIPT EXECTUABLE
 chmod +x /etc/skel/Desktop/"START HERE"
 
 FINAL COMMANDS WITHIN CHROOT
-> ~/.bash_history
-history -c
-exit
+> ~/.bash_history ; history -c ; exit
 
 UNMOUNT DIRECTORIES
 sudo umount squashfs-root/dev/pts squashfs-root/dev squashfs-root/proc squashfs-root/sys
@@ -58,13 +53,13 @@ SET TIMESTAMPS
 sudo find squashfs-root/ -exec touch -h -d "2023-08-01 00:00:00" {} +
 
 CLEAR SPACE
-delete the file filesystem.squashfs
+sudo rm ~/custom-mint/iso/casper/filesystem.squashfs
 
 CREATE NEW FS
-sudo mksquashfs squashfs=root ~/custom-mint/iso/casper/filesystem.squashfs
+sudo mksquashfs squashfs-root ~/custom-mint/iso/casper/filesystem.squashfs
 
 GET MBR OF ORIGINAL
-dd if=/path/to/original.iso bs=512 count=1 of=~/custom-mint/isohdpfx.bin
+sudo dd if=~/Downloads/linuxmint-21.2-cinnamon-64bit.iso bs=512 count=1 of=~/custom-mint/iso/isolinux/isohdpfx.bin
 
 
 MAKE ISO
@@ -75,7 +70,7 @@ sudo xorriso -as mkisofs \
   -eltorito-boot isolinux/isolinux.bin \
   -eltorito-catalog isolinux/boot.cat \
   -no-emul-boot -boot-load-size 4 -boot-info-table \
-  -isohybrid-mbr ~/custom-mint/isohdpfx.bin \
+  -isohybrid-mbr ~/custom-mint/iso/isolinux/isohdpfx.bin \
   -output ParmanodL.iso \
   iso/
 
