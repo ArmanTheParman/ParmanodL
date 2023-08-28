@@ -1,4 +1,9 @@
+This is the process to produce the Parmanode.iso, however, exact reproducability has been elusive.
+I'll leave the information here regardless, for information and interest.
+
 ENVIRONMENT
+
+    Linux Mint 21.2 Computer.
 
     Linux Mint - linuxmint-21.2-cinnamon-64bit.iso; download to ~/Downloads/
 
