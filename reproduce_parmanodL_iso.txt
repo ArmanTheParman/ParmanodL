@@ -26,8 +26,9 @@ WITHIN THE FILE SYSTEM:
 	mkdir /etc/skel/Desktop
 	touch /etc/skel/Desktop/"START HERE"
 
-START HERE - PRECISE FILE CONTENTS:
-'#!/bin/bash
+START HERE - PRECISE FILE CONTENTS; RUN THIS ECHO COMMAND IN ONE GO...
+
+echo '#!/bin/bash
 if ! ping -c 1 8.8.8.8 > /dev/null ; then 
 clear 
 echo "Please check your internet connection before trying again. Exiting."
@@ -35,15 +36,21 @@ exit
 fi
 sudo apt update -y ; sudo apt install git -y
 git clone http://github.com/armantheparman/parmanode.git
-echo'#!/bin/bash
+echo'\''#!/bin/bash
 cd ; cd Desktop ; cd parmanode ; ./run_parmanode.sh
-' > $HOME/Desktop/run_parmanode.sh
+'\'' > $HOME/Desktop/run_parmanode.sh
 sudo chmod +x $HOME/Desktop/run_parmanode.sh
 rm $HOME/Desktop/"START HERE"
-exit'
+exit' > /etc/skel/Desktop/"START HERE"
 
+MAKE SCRIPT EXECTUABLE
+chmod +x /etc/skel/Desktop/"START HERE"
 
-
-FINAL TOUCHES
+FINAL COMMANDS WITHIN CHROOT
 > ~/.bash_history
+history -c
+exit
+
+SET TIMESTAMPS
 find squashfs-root/ -exec touch -h -d "2023-08-01 00:00:00" {} +
+
