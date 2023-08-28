@@ -57,6 +57,12 @@ sudo umount squashfs-root/dev/pts squashfs-root/dev squashfs-root/proc squashfs-
 SET TIMESTAMPS
 sudo find squashfs-root/ -exec touch -h -d "2023-08-01 00:00:00" {} +
 
+CLEAR SPACE
+delete the file filesystem.squashfs
+
+CREATE NEW FS
+sudo mksquashfs squashfs=root ~/custom-mint/iso/casper/filesystem.squashfs
+
 MAKE ISO
 sudo xorriso -as mkisofs \
   -iso-level 3 \
