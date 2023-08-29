@@ -61,7 +61,7 @@ to run Parmanode. You'll get a pop up and choose to "run in terminal".
 ## CUSTOM FUNCTIONS
 
 To make your ParmanodL more enjoyable to use, I have some custom functions which makes life
-in the terminal a little easier and prittier.
+in the terminal a little easier and prettier.
 
 Get it by downloading the ParmanodL repository:
 
