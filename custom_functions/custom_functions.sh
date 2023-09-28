@@ -15,12 +15,10 @@ echo ""
 
 function aa { a "lah" ; }
 
-function c { 
-#dir=$1
-cd $1
-a
-}
-
 function set_terminal { printf '\e[8;40;140t' ; }
 
-function .. { c .. ; }
+function d { cd $HOME/Desktop ; a ; }
+
+function pn { cd $HOME/parman_programs/parmanode/ ; a ; }
+function pp { cd $HOME/parman_programs ; a ; }
+function pl { cd $HOME/parman_programs/ParmanodL ; a ; }
