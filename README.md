@@ -14,7 +14,8 @@ Open terminal, copay and paste this ONE LINE, then hit enter.
 
     /bin/bash -c "$(curl -fsSL https://parmanode.com/get_parmanodl_installer)" 
 
-This will place an installer on your desktop. Double click it.
+This will place an installer on your desktop. Double click it (to see the code, 
+simply paste the url portion of the line above into a browser or curl).
 
 The installer will work on a Mac or Linux. In summary, it builds a Parmanode OS image
 file, then it writes it to a microSD card for use in a Pi4. The Pi can be accessed by
