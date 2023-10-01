@@ -60,7 +60,7 @@ you can read the code, it should be straightforward reading with pleny of commen
     12)  An executable is made that sits on the desktop. It will tidy known_hosts with
          each execution, and ssh to parman@parmanodl.local
 
-    13)  Withing the Parmanodl OS SSH window, the user will be prompted to change the 
+    13)  Within the Parmanodl OS SSH window, the user will be prompted to change the 
          password from 'parmanodl'. The username 'parman' remains, sorry.
 
     14)  There is a prompt to type "menu" which runs the Parmanode software. Parmanode
