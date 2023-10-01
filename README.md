@@ -14,8 +14,11 @@ Open terminal, copay and paste this ONE LINE, then hit enter.
 
     /bin/bash -c "$(curl -fsSL https://parmanode.com/get_parmanodl_installer)" 
 
-This will place an installer on your desktop. Double click it (to see the code, 
-simply paste the url portion of the line above into a browser or curl).
+This will place an installer on your desktop. Double click it (to see the get program
+code, simply paste the url portion of the line above into a browser or curl. To see
+the installer code, visit this link:
+
+     https://github.com/ArmanTheParman/Parmanode/tree/master/ParmanodL
 
 The installer will work on a Mac or Linux. In summary, it builds a Parmanode OS image
 file, then it writes it to a microSD card for use in a Pi4. The Pi can be accessed by
@@ -44,14 +47,14 @@ you can read the code, it should be straightforward reading with pleny of commen
     7)   Mounts the Pi OS image file on to the host's file system, but for Mac, it mounts
          to a temporary Linux Docker container.
     
-    8)   Modifications are made to the Pi OS to turn it into Parmanode OS.
+    8)   Essential modifications are made to the Pi OS to turn it into Parmanode OS.
     
     9)   The user is prompted to insert the target microSD card which gets detected by
          the software
     
     10)  Parmanode OS is flashed onto the the microSD card
     
-    11)  The known_hosts files is tidied up, removing any previous parmanodl entries to 
+    11)  The known_hosts files is tidied up, removing any previous ParmanodL entries to 
          avoid confusing error messages later for the user. 
 
     12)  An executable is made that sits on the desktop. It will tidy known_hosts with
@@ -60,16 +63,16 @@ you can read the code, it should be straightforward reading with pleny of commen
     13)  Withing the Parmanodl OS SSH window, the user will be prompted to change the 
          password from 'parmanodl'. The username 'parman' remains, sorry.
 
-    14)  There is a prompt to type "menu" which runs the Parmanode software. It is alread
-         configured to the "installed" state. Apps can simply be installed from the
-         menu options.
+    14)  There is a prompt to type "menu" which runs the Parmanode software. Parmanode
+         is already configured to the "installed" state. Apps can simply be installed from 
+         the menu options.
 
     15)  The installer program, upon finishing, will tidy up any mess left on the building
          computer, offer to delete Docker if it was installed, and delete itself from 
          the desktop, leaving only the Run_ParmanodL executable file for SSH access.
  
-This fairly elaborate method of creating Parmanode OS is opposed to having me created the
-image on my coputer and distributing a file. While that would have been easier, it requires
+This fairly elaborate method of creating Parmanode OS is opposed to having me create the
+image on my computer and distributing a file. While that would have been easier, it requires
 the users to trust my build. This way, effectively every step of the way is trustless - the 
 code being used is open to read.
  
